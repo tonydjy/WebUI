@@ -1,0 +1,17 @@
+<html ng-app="tvapp">
+
+<head>
+	<script src='/angular.js'></script>
+	<script type="text/javascript" src='app.js'></script>
+	<script type="text/javascript" src='/controller/MyController.js'></script>
+	<script type="text/javascript" src='/service/apiClient.js'></script>
+</head>
+<body>
+	<div ng-controller="MyController">
+		<input ng-model='person.name' type="text" placeholder = "Your name">
+		<button ng-click="click()">OK</button>
+		<h1>Hello {{person.name}}</h1>
+	</div>
+
+</body>
+</html>
