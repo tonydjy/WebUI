@@ -3,11 +3,31 @@ angular.module("tvapp").controller("MyController",[
 	"$timeout",
 	"ApiClient",
 	function($scope, $timeout, apiClient){
-	$scope.person = {"name":"Tony"};
+	$scope.product = {"name":"Miumiu"};
 
 	$scope.click = function(){
 		getServerPromise();
 	}
+        $scope.add = function(){
+            var text = $scope.product.name.trim();
+            if(text) {
+               $scope.productList.push({
+                    name:text
+                });
+               $scope.text = '';
+            }
+        }
+
+        $scope.productList = [{
+              name:'GUCCI'
+        },{
+              name:' BUBBERY '
+        }];
+
+        $scope.delete = function(product){
+             var index = $scope.productList.indexOf(product)
+             $scope.productList.splice(index,1);// 起删除的作用
+         }
 
 	var getServerPromise = function(){
 
@@ -15,7 +35,7 @@ angular.module("tvapp").controller("MyController",[
       promise.then(function(response){
         try{
           if(response.status == 200){
-             $scope.person.name = response.data.name;
+             $scope.product.name = response.data.name;
           }
         }catch(ex)
         {
