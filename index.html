@@ -14,9 +14,9 @@
             <hr>
 	     </header>
 		<form class="input-group input-group-lg">
-		<input ng-model='product.name' class="form-control" type="text" placeholder = "Your name">
+		<input ng-model='product' class="form-control" type="text" placeholder = "Your name">
 		 <span class="input-group-btn">
-			<button class="btn btn-secondary" ng-click="add()">ADD</button>
+			<button class="btn btn-secondary" ng-click="addProduct()">ADD</button>
 		</span>
 		</form>
             <ul class="list-group" style="padding:12px;">
@@ -26,7 +26,7 @@
                     <span class="sr-only">Close</span>
                 </button>
 		<label>
-                            <span>{{item.name }}</span>
+                            <span>{{item}}</span>
                    </label>
                 </li>
            </ul>

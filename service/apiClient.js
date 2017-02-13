@@ -8,11 +8,37 @@ angular.module("tvapp.service",[]).factory("ApiClient", [
 			method: 'GET'
 			});
         	return responsePromise;
-		}
+		},
+		post: function(url, body) {
+			var responsePromise = $http({
+				url: url,
+                method: 'POST',
+                data: body
+			});
+
+			return responsePromise;
+		},
+
+		put: function(url, body){
+	         var responsePromise = $http({
+	             url:url,
+	             method: 'PUT',
+	             data: body
+	           });
+	         	return responsePromise;
+	     },
+         
+         delete: function(url){
+	         var responsePromise = $http({
+	             url:url,
+	             method: 'DELETE',
+	         });
+         	return responsePromise;
+         }
 	}
 	return {
-        sayHello:function(){
-        	var url =  "http://120.77.83.147:8080/RestApi/rest/hello"; 
+        getProductList:function(){
+        	var url =  "http://120.77.83.147:8080/RestApi/rest/product/getProductList"; 
             return remote['get'](url);
         }
     }
