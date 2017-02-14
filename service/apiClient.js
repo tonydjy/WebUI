@@ -40,7 +40,15 @@ angular.module("tvapp.service",[]).factory("ApiClient", [
         getProductList:function(){
         	var url =  "http://120.77.83.147:8080/RestApi/rest/product/getProductList"; 
             return remote['get'](url);
-        }
+        },
+		addProduct:function(product){
+			var url =  "http://120.77.83.147:8080/RestApi/rest/product/addProduct"; 
+			return remote['post'](url, product);
+		},
+		deleteProduct:function(product){
+			var url =  "http://120.77.83.147:8080/RestApi/rest/product/deleteProduct?product=" + product; 
+			return remote['delete'](url, product);
+		}
     }
 
 }]);
