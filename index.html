@@ -2,35 +2,15 @@
 
 <head>
 	<link rel="stylesheet" href="bootstrap.min.css" />
-	<script src='/angular.js'></script>
+</head>
+<body>
+	<div class="container" ng-view>
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/lib/angular-route/angular-route.js"></script>
+	<script src="/lib/angular-animate/angular-animate.js"></script>
 	<script type="text/javascript" src='app.js'></script>
 	<script type="text/javascript" src='/controller/MyController.js'></script>
 	<script type="text/javascript" src='/service/apiClient.js'></script>
-</head>
-<body>
-	<div class="container" ng-controller="MyController">
-            <header>
-            <h1 class="display-3">PRODUCT LIST</h1>
-            <hr>
-	     </header>
-		<form class="input-group input-group-lg">
-		<input ng-model='product' class="form-control" type="text" placeholder = "Product name">
-		 <span class="input-group-btn">
-			<button class="btn btn-secondary" ng-click="addProduct()">ADD</button>
-		</span>
-		</form>
-            <ul class="list-group" style="padding:12px;">
-                <li class="list-group-item" ng-repeat="item in productList" >
-                <button type="button" class="close" aria-label="close" ng-click="delete(item)">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-		<label>
-                            <span>{{item}}</span>
-                   </label>
-                </li>
-           </ul>
-
 	</div>
 
 </body>
