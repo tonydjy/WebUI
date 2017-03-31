@@ -3,15 +3,18 @@
 <head>
 	<link rel="stylesheet" href="bootstrap.min.css" />
 </head>
-<body>
-	<div class="container" ng-view>
 	<script src="/lib/angular/angular.js"></script>
 	<script src="/lib/angular-route/angular-route.js"></script>
 	<script src="/lib/angular-animate/angular-animate.js"></script>
 	<script type="text/javascript" src='app.js'></script>
 	<script type="text/javascript" src='/controller/MyController.js'></script>
+	<script type="text/javascript" src='/controller/productController.js'></script>
+	<script type="text/javascript" src='/controller/loginController.js'></script>
 	<script type="text/javascript" src='/service/apiClient.js'></script>
-	</div>
+<body>
+	<div class="container" ng-view ng-controller="MyController">
 
+	</div>
+	
 </body>
 </html>

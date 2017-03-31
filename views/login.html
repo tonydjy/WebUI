@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="css/bootstrap-combined.min.css" />
+<link rel="stylesheet" href="css/login.css" />
+<div id="login" class="container">
+	  <div class="row-fluid">
+	    <div class="span12">
+	      <div class="login well well-small">
+	        <div class="center">
+	          <img src="http://placehold.it/250x100&text=Logo" alt="logo"> 
+	        </div>
+	        <form  ng-submit="submit()" class="login-form" id="UserLoginForm" accept-charset="utf-8">
+	          <div class="control-group">
+	            <div class="input-prepend">
+	              <span class="add-on"><i class="icon-user"></i></span>
+	              <input required="required" placeholder="Username" ng-model="person.name" name="person.name" maxlength="255" type="text" id="UserUsername"> 
+	            </div>
+	          </div>
+	          <div class="control-group">
+	            <div class="input-prepend">
+	              <span class="add-on"><i class="icon-lock"></i></span>
+	              <input ng-model="person.password" name="person.password" required="required" placeholder="Password" type="password" id="UserPassword"> 
+	            </div>
+	          </div>
+	          <div class="control-group">
+	            <label id="remember-me">
+	              <input type="checkbox" name="data[User][remember_me]" value="1" id="UserRememberMe"> Remember Me?</label>
+	          </div>
+	          <div class="control-group">
+	            <input class="btn btn-primary btn-large btn-block" type="submit" value="Sign in"> 
+	          </div>
+	        </form>
+	      </div><!--/.login-->
+	    </div><!--/.span12-->
+	  </div><!--/.row-fluid-->
+</div><!--/.container-->

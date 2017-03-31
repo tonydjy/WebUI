@@ -6,11 +6,15 @@ var tvapp = angular.module("tvapp", [
 	$routeProvider
 		.when('/',{
 			templateUrl: '/views/admin.html',
-			controller:'MyController'
+			controller:'productController'
 		})
 		.when('/test',{
 			templateUrl: '/views/test.html',
 			controller:'MyController'
+		})
+		.when('/login',{
+			templateUrl: '/views/login.html',
+			controller:'loginController'
 		})
 
 	
