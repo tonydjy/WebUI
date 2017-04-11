@@ -2,7 +2,8 @@ angular.module("tvapp").controller("productController",[
 	"$scope",
 	"$timeout",
 	"ApiClient",
-	function($scope, $timeout, apiClient){
+	"$rootScope",
+	function($scope, $timeout, apiClient, $rootScope){
 	
     $scope.addProduct = function(){
     	var text = $scope.product.trim();
@@ -41,7 +42,10 @@ angular.module("tvapp").controller("productController",[
           {
             console.log(ex);
           }
-          console.log(response);
+        },function(response){
+        	if(response.status == 401){
+            	$rootScope.$broadcast("tokenexpired");
+            }
         })
     };
     

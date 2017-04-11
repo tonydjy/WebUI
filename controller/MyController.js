@@ -13,4 +13,8 @@ angular.module("tvapp").controller("MyController",[
 			location.path("/");
 		});
 
+		$rootScope.$on("tokenexpired", function(event, args){
+			console.log("login success!");
+			location.path("/login");
+		});
 }]);

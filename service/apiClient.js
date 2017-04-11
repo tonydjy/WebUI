@@ -1,11 +1,15 @@
 angular.module("tvapp.service",[]).factory("ApiClient", [
 	'$http',
-	function($http){
+	'Cache',
+	function($http, cache){
 	var remote = {
 		get: function(url){
 			var responsePromise = $http({
 			url: url,
-			method: 'GET'
+			method: 'GET',
+			headers: {
+				'x-auth-token': cache.getToken()
+			}
 			});
         	return responsePromise;
 		},
@@ -13,6 +17,9 @@ angular.module("tvapp.service",[]).factory("ApiClient", [
 			var responsePromise = $http({
 				url: url,
                 method: 'POST',
+				headers: {
+					'x-auth-token': cache.getToken()
+				},
                 data: body
 			});
 
@@ -23,6 +30,9 @@ angular.module("tvapp.service",[]).factory("ApiClient", [
 	         var responsePromise = $http({
 	             url:url,
 	             method: 'PUT',
+				headers: {
+					'x-auth-token': cache.getToken()
+				},
 	             data: body
 	           });
 	         	return responsePromise;
@@ -32,6 +42,9 @@ angular.module("tvapp.service",[]).factory("ApiClient", [
 	         var responsePromise = $http({
 	             url:url,
 	             method: 'DELETE',
+				headers: {
+					'x-auth-token': cache.getToken()
+				}
 	         });
          	return responsePromise;
          }
@@ -48,6 +61,10 @@ angular.module("tvapp.service",[]).factory("ApiClient", [
 		deleteProduct:function(product){
 			var url =  "http://120.77.83.147:8080/RestApi/rest/product/deleteProduct?product=" + product; 
 			return remote['delete'](url, product);
+		},
+		authUser:function(body){
+			var url =  "http://120.77.83.147:8080/RestApi/rest/user/auth" ; 
+			return remote['post'](url, body);
 		}
     }
 
