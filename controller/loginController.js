@@ -5,7 +5,8 @@ angular.module("tvapp").controller("loginController",[
 	"ApiClient",
 	"Cache",
 	function($rootScope, $scope, $timeout, apiClient, cache){
-
+		$scope.showloginbox = true;
+		$scope.showsignbox = false;
 		$scope.submit = function() {
 			  authbody ={
 					  "name":$scope.user.name,
@@ -25,6 +26,10 @@ angular.module("tvapp").controller("loginController",[
 		        }
 		        console.log(response);
 		      })
+		}
+		
+		$scope.showSignUp = function(){
+			$scope.showloginbox = !$scope.showloginbox;
 		}
 	}
 ])

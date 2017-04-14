@@ -4,7 +4,7 @@ var tvapp = angular.module("tvapp", [
 					'ngAnimate',
 ]).config(['$routeProvider', function($routeProvider){
 	$routeProvider
-		.when('/',{
+		.when('/admin',{
 			templateUrl: '/views/admin.html',
 			controller:'productController'
 		})
@@ -15,7 +15,14 @@ var tvapp = angular.module("tvapp", [
 		.when('/login',{
 			templateUrl: '/views/login.html',
 			controller:'loginController'
+		})	
+		.when('/',{
+			templateUrl: '/views/login.html',
+			controller:'loginController'
 		})
 
+
 	
-}]);
+}]).config(function($httpProvider){
+    $httpProvider.interceptors.push('httpInterceptor');
+});

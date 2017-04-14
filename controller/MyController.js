@@ -10,10 +10,15 @@ angular.module("tvapp").controller("MyController",[
 		 */
 		$rootScope.$on("loginsuccess", function(event, args){
 			console.log("login success!");
-			location.path("/");
+			location.path("/admin");
 		});
 
 		$rootScope.$on("tokenexpired", function(event, args){
+			console.log("login success!");
+			location.path("/login");
+		});
+		
+		$rootScope.$on("loginfailed", function(event, args){
 			console.log("login success!");
 			location.path("/login");
 		});
