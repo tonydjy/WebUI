@@ -7,6 +7,19 @@ angular.module("tvapp").controller("loginController",[
 	function($rootScope, $scope, $timeout, apiClient, cache){
 		$scope.showloginbox = true;
 		$scope.showsignbox = false;
+		$scope.showLoginWarning = false;
+		$scope.warning_info = "Username or Password invalid";
+		$rootScope.$on("loginfailed", function(event, args){
+			console.log("login failed!");
+			$scope.showLoginWarning = true;
+			$scope.user.name = "";
+			$scope.user.password = "";
+		});
+		
+		$scope.focusInput = function(){
+			$scope.showLoginWarning = false;
+		}
+		
 		$scope.submit = function() {
 			  authbody ={
 					  "name":$scope.user.name,

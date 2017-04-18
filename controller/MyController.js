@@ -18,8 +18,4 @@ angular.module("tvapp").controller("MyController",[
 			location.path("/login");
 		});
 		
-		$rootScope.$on("loginfailed", function(event, args){
-			console.log("login success!");
-			location.path("/login");
-		});
 }]);

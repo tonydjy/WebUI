@@ -32,13 +32,14 @@ angular.module("tvapp.service").factory('httpInterceptor', ['$rootScope','$q','$
 		switch(rejection.status){
 			case 419:
 			case 401:{
-				if(rejection.config.url.indexOf("/login") == -1){
+				if(rejection.config.url.indexOf("/auth") == -1){
 					// ask for refresh content in page due to the re-login (e.g. remove the loading bar)
-					$rootScope.$broadcast("loginfailed", null);
+					 $rootScope.$broadcast("tokenexpired", null);
 					 promise = defer.promise;
 				}
 				else{
 					promise = $q.reject(rejection);
+					$rootScope.$broadcast("loginfailed", null);
 				}
 				break;				
 			}
